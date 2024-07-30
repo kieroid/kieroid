@@ -1,6 +1,10 @@
 # welcome to [my](https://shellfish.racing "shellfish.racing") github profile
 
 
+[![shellfish.racing](https://img.shields.io/badge/shellfish.racing-FF0000)](https://shellfish.racing/)_
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
+
+
 
 <!--
 **kieroid/kieroid** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
