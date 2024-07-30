@@ -1,5 +1,4 @@
-# welcome to my github profile
-### [shellfish.racing](https://shellfish.racing "shellfish.racing")
+# welcome to [my](https://shellfish.racing "shellfish.racing") github profile
 
 
 
