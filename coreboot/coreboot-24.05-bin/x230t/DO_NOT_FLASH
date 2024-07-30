@@ -1,0 +1,14 @@
+# do not flash the rom provided in here. the proprietary components are removed (other than the microcode.) use ifdtool to patch it all together
+#
+# info: Coreboot Version 24.05-5a0207e56a
+#
+# Flash Region 0 (Flash Descriptor): 	00000000 - 00000fff included
+# Flash Region 1 (BIOS): 		0001b000 - 00bfffff included*
+# Flash Region 2 (Intel ME): 		00003000 - 0001afff unincluded**
+# Flash Region 3 (GbE): 		00001000 - 00002fff unincluded**
+# Flash Region 4 (Platform Data): 	00fff000 - 00000fff (unused)
+#
+# *- for the bios flash partition, you need to add the microcode using cbfstool.
+# the file is named "cpu_microcode_blob.bin". extra info: 0x16a80 microcode 26624
+#
+# **- you need to add those flash regions

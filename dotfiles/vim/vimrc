@@ -1,0 +1,48 @@
+set shell=bash
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'tpope/vim-fugitive'
+Plugin 'chriskempson/base16-vim'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'RRethy/vim-hexokinase'
+Plugin 'bluz71/vim-moonfly-colors'
+Plugin 'lambdalisue/fern.vim'
+
+call vundle#end()
+
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+set termguicolors
+
+cmap w!! w !sudo tee > /dev/null %
+
+colorscheme base16-default-dark
+
+let g:Hexokinase_highlighters = ['background']
+let g:airline_theme='base16_default_dark'
+let base16colorspace=256
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+
+set number
+
+filetype on
+syntax on
+filetype plugin indent on
+set encoding=utf-8
+set mouse=a
+set ttymouse=sgr
+set balloonevalterm
