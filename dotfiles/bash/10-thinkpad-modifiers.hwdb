@@ -1,0 +1,3 @@
+evdev:atkbd:dmi:*
+ KEYBOARD_KEY_6c=rotate_display
+ KEYBOARD_KEY_67=cyclewindows

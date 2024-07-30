@@ -1,0 +1,67 @@
+#!/bin/sh
+
+# change background to your background location
+background="/home/kieran/Repositories/dotfiles/backgrounds/newbliss.png"
+
+# gathering screen data for x220t/x230t
+fingerID=$(xinput | grep -oP "Finger.*id=\K\d+")
+penID=$(xinput | grep -m 1 -oP "Pen.*id=\K\d+")
+eraserID=$(xinput | grep -m 1 -oP "Eraser.*id=\K\d+")
+trackpointID=$(xinput | grep -m 1 -oP "TrackPoint.*id=\K\d+")
+touchpadID=$(xinput | grep -m 1 -oP "TouchPad.*id=\K\d+")
+screenID=$(xrandr | grep "connected primary" | awk '{print $1}')
+
+# current position
+cpos=$(xinput --list-props "$fingerID" | awk '/Coordinate Transformation Matrix/{print $5$6$7$8$9$10$11$12$NF}')
+
+# 0
+normal='1 0 0 0 1 0 0 0 1'
+normal_float='1.000000,0.000000,0.000000,0.000000,1.000000,0.000000,0.000000,0.000000,1.000000'
+
+# 90
+right='0 1 0 -1 0 1 0 0 1'
+right_float='0.000000,1.000000,0.000000,-1.000000,0.000000,1.000000,0.000000,0.000000,1.000000'
+
+# 180 
+inverted='-1 0 1 0 -1 1 0 0 1'
+inverted_float='-1.000000,0.000000,1.000000,0.000000,-1.000000,1.000000,0.000000,0.000000,1.000000'
+
+# 270
+left='0 -1 1 1 0 0 0 0 1'
+left_float='0.000000,-1.000000,1.000000,1.000000,0.000000,0.000000,0.000000,0.000000,1.000000'
+
+if [[ $cpos == $normal_float ]]
+then
+	xrandr --output $screenID --rotate right
+	xinput set-prop $fingerID 'Coordinate Transformation Matrix' $right
+	xinput set-prop $penID 'Coordinate Transformation Matrix' $right
+	xinput set-prop $eraserID 'Coordinate Transformation Matrix' $right
+	xinput set-prop $trackpointID 'Coordinate Transformation Matrix' $right
+	xinput set-prop $touchpadID 'Coordinate Transformation Matrix' $right
+	feh --bg-fill $background
+elif [[ $cpos == $right_float ]]; then
+	xrandr --output $screenID --rotate inverted
+	xinput set-prop $fingerID 'Coordinate Transformation Matrix' $inverted
+	xinput set-prop $penID 'Coordinate Transformation Matrix' $inverted
+	xinput set-prop $eraserID 'Coordinate Transformation Matrix' $inverted
+	xinput set-prop $trackpointID 'Coordinate Transformation Matrix' $inverted
+	xinput set-prop $touchpadID 'Coordinate Transformation Matrix' $inverted
+	feh --bg-fill $background
+elif [[ $cpos == $inverted_float ]]; then
+	xrandr --output $screenID --rotate left
+	xinput set-prop $fingerID 'Coordinate Transformation Matrix' $left
+	xinput set-prop $penID 'Coordinate Transformation Matrix' $left
+	xinput set-prop $eraserID 'Coordinate Transformation Matrix' $left
+	xinput set-prop $trackpointID 'Coordinate Transformation Matrix' $left
+	xinput set-prop $touchpadID 'Coordinate Transformation Matrix' $left
+	feh --bg-fill $background
+else
+	xrandr --output $screenID --rotate normal
+	xinput set-prop $fingerID 'Coordinate Transformation Matrix' $normal
+	xinput set-prop $penID 'Coordinate Transformation Matrix' $normal
+	xinput set-prop $eraserID 'Coordinate Transformation Matrix' $normal
+	xinput set-prop $trackpointID 'Coordinate Transformation Matrix' $normal
+	xinput set-prop $touchpadID 'Coordinate Transformation Matrix' $normal
+	feh --bg-fill $background
+fi
+

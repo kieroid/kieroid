@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# put svkbd binary location below
+#svkbd="svkbd-mobile-plain"
+#svkbd="svkbd-mobile-simple"
+svkbd="svkbd-mobile-intl"
+#svkbd="svkbd-en"
+
+# code
+if pgrep -x $svkbd > /dev/null 
+then
+	echo "Destorying SVKBD"
+	exec pkill $svkbd &
+else
+	echo "Starting SVKBD"
+	exec $svkbd &
+fi
+

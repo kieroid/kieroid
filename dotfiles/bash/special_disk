@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# Status bar module for disk space
+# $1 should be drive mountpoint, otherwise assumed /.
+
+#location=${1:-/}
+
+#[ -d "$location" ] || exit
+
+#case $BLOCK_BUTTON in
+#	1) notify-send "💽 Disk space" "$(df -h --output=target,used,size)" ;
+#esac
+
+#printf "%s %s\n" "$(df -h "$location" | awk ' /[0-9]/ {print $3 "/" $2}')"
+
+#df -h | grep /dev/sda | awk '{print $3\"/\"$2}'
+
+printf "$(df -h / | awk '/[0-9]/ {print $3}')"
