@@ -1,0 +1,15 @@
+#!/bin/sh
+
+#system-wide variables
+
+export GTK_THEME=Adwaita:dark
+
+#start up apps
+
+picom & #set compositor
+feh --bg-center /home/kiki/Media/Photos/Screenshots/Backgrounds/funny_43.png & #set wallpaper
+syncthing &
+dwmblocks &
+sudo xbps-install -SAufy & #package manager (dependent on system)
+dbus-launch /usr/bin/pipewire & #pipewire (aka pulseaudio)
+dbus-launch /usr/local/bin/dwm #shitty dwm
