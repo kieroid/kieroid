@@ -3,7 +3,7 @@
 # put svkbd binary location below
 #svkbd="svkbd-mobile-plain"
 #svkbd="svkbd-mobile-simple"
-svkbd="svkbd-mobile-intl"
+svkbd="svkbd-sxmo"
 #svkbd="svkbd-en"
 
 # code
