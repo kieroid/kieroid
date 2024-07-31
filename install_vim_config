@@ -3,7 +3,6 @@
 # this script is made by kieran. i am not responsible for the deletion of your system.
 
 echo "WARNING: If you use neovim, ensure there is a symlink to it as 'vim'. Otherwise, standard vim will install."
-echo "If you plan on installing vim, ensure you have root permissions to the package manager."
 
 # yes/no function
 ask_yes_no_quit() {
