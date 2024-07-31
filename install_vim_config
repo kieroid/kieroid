@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # this script is made by kieran. i am not responsible for the deletion of your system.
-
+echo "DO NOT RUN THIS SCRIPT AS ROOT! It will automatically run itself at root when needed."
 echo "WARNING: If you use neovim, ensure there is a symlink to it as 'vim'. Otherwise, standard vim will install."
 
 # yes/no function
