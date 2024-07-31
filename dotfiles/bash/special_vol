@@ -1,18 +1,28 @@
 #!/bin/sh
 
-if [ "$(pamixer --get-mute)" = true ]; then
-    echo "0%"
+# Get mute status using amixer
+mute_status=$(amixer get Master | grep '\[off\]')
+
+# Check if muted
+if [ ! -z "$mute_status" ]; then
+    echo "Muted"
     exit
 fi
 
-vol="$(pamixer --get-volume)"
+# Get volume level using amixer
+vol=$(amixer get Master | grep 'Mono:' | awk '{print $4}' | sed 's/[^0-9]//g')
+
+# Check for command successfully executed and non-empty volume
 [ $? -ne 0 ] && [ -z "$vol" ] && exit 1
 
 echo "$vol%"
+
+# Uncomment below code to display volume level indicators based on thresholds
+
 #if [ "$vol" -gt 40 ]; then
-#    echo "HIGH "
+#    echo "Volume High"
 #elif [ "$vol" -gt 15 ]; then
-#    echo " "
+#    echo "Volume Medium"
 #else
-#    echo " "
+#    echo "Volume Low"
 #fi
