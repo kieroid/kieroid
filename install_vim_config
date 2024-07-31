@@ -19,7 +19,7 @@ ask_yes_no_quit() {
 }
 
 # Prompt the user
-ask_yes_no_quit "Do you want to install my vim config?"
+ask_yes_no_quit "Do you want to install the vim config?"
 
 parent_directory=$(pwd)
 
@@ -118,5 +118,17 @@ echo "Plugins updated."
 
 make -C $HOME/.vim/bundle/vim-hexokinase/
 
+sleep 1
+echo "Success!"
 
-echo "Good job! My config is installed. Have fun!"
+# install the config to root user
+ask_yes_no_quit "Would you like to install to root user as well?"
+
+sudo ln -s $HOME/.vimrc /root/.vimrc
+echo "Updating plugins."
+sudo vim +PluginInstall +qall
+echo "Plugins Updated."
+
+make -C /root/.vim/bundle/vim-hexokinase/
+sleep 1
+echo "Success!"
