@@ -123,6 +123,7 @@ echo "Success!"
 # install the config to root user
 ask_yes_no_quit "Would you like to install to root user as well?"
 
+sudo rm -f /root/.vimrc
 sudo ln -s $HOME/.vimrc /root/.vimrc
 echo "Updating plugins."
 sudo vim +PluginInstall +qall
