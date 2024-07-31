@@ -124,11 +124,7 @@ echo "Success!"
 ask_yes_no_quit "Would you like to install to root user as well?"
 
 sudo rm -f /root/.vimrc
+sudo rm -rf /root/.vim
 sudo ln -s $HOME/.vimrc /root/.vimrc
-echo "Updating plugins."
-sudo vim +PluginInstall +qall
-echo "Plugins Updated."
-
-sudo make -C /root/.vim/bundle/vim-hexokinase/
-sleep 1
-echo "Success!"
+sudo ln -s $HOME/.vim /root/.vim
+echo "Success! Vim config is now installed."
