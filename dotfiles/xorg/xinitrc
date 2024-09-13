@@ -1,1 +1,13 @@
-../bash/start-dwm
+#!/bin/sh
+
+#system-wide variables
+
+export GTK_THEME=Adwaita:dark
+export MOZ_USE_XINPUT2=1
+
+#start up apps
+sudo setkeycodes 6c 172 & #set silly rotate button
+xscreensaver --no-splash &
+picom & #set compositor
+feh --bg-center /home/kiki/Media/Photos/Screenshots/Backgrounds/funny_43.png & #set wallpaper
+dbus-launch /usr/local/bin/dwm #shitty dwm

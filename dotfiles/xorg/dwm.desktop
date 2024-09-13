@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=dwm
 Comment=Suckless Dynamic Window Manager
-Exec=dbus-launch /usr/local/bin/start-dwm
+Exec=/home/kiki/.xinitrc
 Type=Application
 Keywords=windowmanager;tiling
