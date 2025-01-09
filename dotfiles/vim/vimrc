@@ -48,5 +48,3 @@ set encoding=utf-8
 set mouse=a
 set ttymouse=sgr
 set balloonevalterm
-
-autocmd VimEnter * NERDTree | wincmd p
