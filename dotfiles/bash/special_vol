@@ -2,4 +2,4 @@
 
 DEVICE=$(wpctl status | grep -A 1 'Sinks:' | sed -n '2p' | awk '{print $3}' | sed 's/.$//')
 
-wpctl get-volume $DEVICE | awk '/Volume:/ { if ($3 == "[MUTED]") print 0; else print $2*100 }'
+wpctl get-volume $DEVICE | awk '/Volume:/ { if ($3 == "[MUTED]") print 0; else print $2*100 }' && exit

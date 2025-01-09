@@ -15,4 +15,4 @@
 
 #df -h | grep /dev/sda | awk '{print $3\"/\"$2}'
 
-printf "$(df -h / | awk '/[0-9]/ {print $3}')"
+printf "$(df -h / | awk '/[0-9]/ {print $3}')" && exit

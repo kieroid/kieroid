@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # change background to your background location
-background="/home/kiki/Media/Photos/Screenshots/Backgrounds/funny_43.png"
+background="/home/kiki/Media/Photos/Screenshots/Backgrounds/wall-0.jpg"
 
 # gathering screen data for x220t/x230t
 fingerID=$(xinput | grep -oP "Finger.*id=\K\d+")

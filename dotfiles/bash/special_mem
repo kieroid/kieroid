@@ -1,4 +1,3 @@
 #!/bin/sh
 
-awk '/^Mem:/ {printf "%.2f\n", $3 / 1024}' <(free -m)
-
+awk '/^Mem:/ {printf "%.2f\n", $3 / 1024}' <(free -m) && exit
